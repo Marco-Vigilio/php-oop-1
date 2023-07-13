@@ -6,14 +6,10 @@
 
 
 
-        public function __construct(string $_name, GetStringDuration $duration_min, string $_gender){
+        public function __construct(string $_name, int $_duration_min , string $_gender){
             $this->name = $_name;
+            $this->duration_min = $_duration_min;
             $this->gender = $_gender;
-        }
-
-        public function GetStringDuration($duration_min){
-            $duration_min = $duration_min." minuti";
-            return $duration_min;
         }
 
         public function GetInformation(){
@@ -23,9 +19,34 @@
         }
     }
 
-$venom = new Movie ("Venom", GetStringDuration(120), "Azione");
-$venom->GetInformation();
+$venom = new Movie ("Venom", 120, "Azione");
 
-$avengers = new Movie ("Avengers", GetStringDuration(120), "Azione");
-$avengers->GetInformation();
+
+$avengers = new Movie ("Avengers", 120, "Azione");
+
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classi</title>
+</head>
+<body>
+    <main>
+        <div class="items">
+            <div class="card">
+                <p>
+                    <?php $venom->GetInformation();?>
+                </p>
+            </div>
+            <div class="card">
+                <p>
+                    <?php $avengers->GetInformation();?>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
